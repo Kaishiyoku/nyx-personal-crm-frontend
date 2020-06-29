@@ -1,17 +1,16 @@
 import React from 'react';
 import 'assets/scss/App.scss';
-import reactLogo from 'assets/img/react_logo.svg';
+import SingleFullWidthGrid from './SingleFullWidthGrid';
 
 class WelcomePage extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        <h1>Hello World!</h1>
-        <p>Foo to the bar</p>
-        <img src={reactLogo} height="480" />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <SingleFullWidthGrid>
+                <h1>Hello World!</h1>
+                <p>Foo to the bar</p>
+            </SingleFullWidthGrid>
+        );
+    }
 }
 
 export default WelcomePage;
