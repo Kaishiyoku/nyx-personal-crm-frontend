@@ -2,10 +2,9 @@ import React, {useRef} from 'react';
 import {Layout, useLayoutNavigation} from '@react-md/layout';
 import {ENTER, useCrossFade} from '@react-md/transition';
 import navItems from '../../core/navItems';
-import {Link, Router, useLocation} from '@reach/router';
-import AboutPage from '../pages/AboutPage';
-import WelcomePage from '../pages/WelcomePage';
+import {Link, useLocation} from '@reach/router';
 import config from '../../config';
+import Routing from './Routing';
 
 export default () => {
     const {pathname} = useLocation();
@@ -25,10 +24,7 @@ export default () => {
             treeProps={useLayoutNavigation(navItems, pathname, Link)}
             mainProps={transitionProps}
         >
-            <Router>
-                <WelcomePage path="/"/>
-                <AboutPage path="about"/>
-            </Router>
+            <Routing/>
         </Layout>
     );
 };

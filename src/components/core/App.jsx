@@ -5,14 +5,16 @@ import MainLayout from './MainLayout';
 import {createHistory, LocationProvider} from '@reach/router';
 import {Configuration} from '@react-md/layout';
 
-const App = () => {
-    return (
-        <LocationProvider history={createHistory(window)}>
-            <Configuration>
-                <MainLayout/>
-            </Configuration>
-        </LocationProvider>
-    );
-};
+class App extends React.PureComponent {
+    render() {
+        return (
+            <LocationProvider history={createHistory(window)}>
+                <Configuration>
+                    <MainLayout/>
+                </Configuration>
+            </LocationProvider>
+        );
+    }
+}
 
 export default hot(module)(App);
