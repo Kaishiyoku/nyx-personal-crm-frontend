@@ -1,5 +1,5 @@
 import React from 'react';
-import {HelpFontIcon, HomeFontIcon} from '@react-md/material-icons';
+import {ExitToAppFontIcon, HelpFontIcon, HomeFontIcon} from '@react-md/material-icons';
 
 const createRoute = (to, name, icon, parentId = null) => {
     return {
@@ -11,11 +11,12 @@ const createRoute = (to, name, icon, parentId = null) => {
     };
 };
 
-/* eslint sort-keys: 0 */
+/* eslint-disable sort-keys */
 const navItems = {
     '/': createRoute('/', 'Home', <HomeFontIcon/>),
+    '/login': createRoute('/login', 'Login', <ExitToAppFontIcon/>),
     '/about': createRoute('/about', 'About', <HelpFontIcon/>),
 };
-/* eslint sort-keys: ["error", "asc"] */
+/* eslint-enable sort-keys */
 
 export default navItems;

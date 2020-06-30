@@ -4,6 +4,7 @@ const translations = {
     },
     common: {
         cancel: 'Cancel',
+        close: 'Close',
         create: 'Create',
         error: 'Error',
     },
