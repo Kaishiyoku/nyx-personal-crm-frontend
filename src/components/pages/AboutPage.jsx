@@ -1,5 +1,4 @@
 import React from 'react';
-import 'assets/scss/App.scss';
 import SingleFullWidthGrid from '../core/SingleFullWidthGrid';
 import trans from '../../i18n/trans';
 

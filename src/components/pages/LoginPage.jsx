@@ -1,5 +1,4 @@
 import React from 'react';
-import 'assets/scss/App.scss';
 import trans from '../../i18n/trans';
 import merge from '../../core/merge';
 import Formsy from 'formsy-react';

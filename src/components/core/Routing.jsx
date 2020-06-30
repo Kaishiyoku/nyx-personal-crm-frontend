@@ -1,12 +1,12 @@
 import AboutPage from '../pages/AboutPage';
 import {Router} from '@reach/router';
 import React from 'react';
-import LoginPage from '../pages/LoginPage';
+import HomePage from '../pages/HomePage';
 
 const Routing = (props) => {
     return (
         <Router>
-            <LoginPage path="/"/>
+            <HomePage path="/"/>
             <AboutPage path="about"/>
         </Router>
     );

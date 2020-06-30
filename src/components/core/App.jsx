@@ -1,6 +1,6 @@
+import 'assets/scss/App.scss';
 import React from 'react';
 import {hot} from 'react-hot-loader';
-import 'assets/scss/App.scss';
 import MainLayout from './MainLayout';
 import {createHistory, LocationProvider} from '@reach/router';
 import {Configuration} from '@react-md/layout';
