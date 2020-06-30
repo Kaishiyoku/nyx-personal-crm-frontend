@@ -2,15 +2,12 @@ import React from 'react';
 import 'assets/scss/App.scss';
 import trans from '../../i18n/trans';
 import merge from '../../core/merge';
-import {navigate} from '@reach/router';
 import Formsy from 'formsy-react';
-import {Grid, GridCell} from '@react-md/utils';
 import setApiToken from '../../authorization/setApiToken';
 import post from '../../request/post';
 import alert$ from '../../rx/alert$';
 import TextInput from '../form/TextInput';
 import ProgressSubmitButton from '../form/ProgressSubmitButton';
-import {Form} from '@react-md/form';
 
 class LoginPage extends React.PureComponent {
     state = {
@@ -36,7 +33,7 @@ class LoginPage extends React.PureComponent {
         post('/login', model).then((response) => {
             setApiToken(response.data.api_token);
 
-            navigate('/about'); // TODO: redirect to real page
+            this.props.navigate('/about'); // TODO: redirect to real page
         }).catch((error) => {
             alert$.next(error.toString());
         }).finally(() => {
