@@ -5,6 +5,7 @@ import navItems from "../../core/navItems";
 import {Link, Router, useLocation} from '@reach/router';
 import AboutPage from '../pages/AboutPage';
 import WelcomePage from '../pages/WelcomePage';
+import config from '../../config';
 
 export default () => {
     const {pathname} = useLocation();
@@ -18,8 +19,8 @@ export default () => {
 
     return (
         <Layout
-            title="My Title"
-            navHeaderTitle="My Nav Title"
+            title={config.appTitle}
+            navHeaderTitle={config.navTitle}
             treeProps={useLayoutNavigation(navItems, pathname, Link)}
             mainProps={transitionProps}
         >
