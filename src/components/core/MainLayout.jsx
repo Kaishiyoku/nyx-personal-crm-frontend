@@ -1,7 +1,7 @@
-import React, {useRef} from "react";
-import {Layout, useLayoutNavigation} from "@react-md/layout";
-import {ENTER, useCrossFade} from "@react-md/transition";
-import navItems from "../../core/navItems";
+import React, {useRef} from 'react';
+import {Layout, useLayoutNavigation} from '@react-md/layout';
+import {ENTER, useCrossFade} from '@react-md/transition';
+import navItems from '../../core/navItems';
 import {Link, Router, useLocation} from '@reach/router';
 import AboutPage from '../pages/AboutPage';
 import WelcomePage from '../pages/WelcomePage';
@@ -13,6 +13,7 @@ export default () => {
     const prevPathname = useRef(pathname);
 
     if (pathname !== prevPathname.current) {
+        // eslint-disable-next-line fp/no-mutation
         prevPathname.current = pathname;
         dispatch(ENTER);
     }

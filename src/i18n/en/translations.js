@@ -3,9 +3,9 @@ const translations = {
         title: 'About',
     },
     common: {
-        error: 'Error',
-        create: 'Create',
         cancel: 'Cancel',
+        create: 'Create',
+        error: 'Error',
     },
     login: {
         alreadyLoggedIn: 'You are already logged in.',
