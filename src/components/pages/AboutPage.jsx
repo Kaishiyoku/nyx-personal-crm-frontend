@@ -1,6 +1,6 @@
 import React from 'react';
 import 'assets/scss/App.scss';
-import SingleFullWidthGrid from './SingleFullWidthGrid';
+import SingleFullWidthGrid from '../core/SingleFullWidthGrid';
 
 class AboutPage extends React.PureComponent {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../src/components/App';
+import App from '../src/components/core/App';
 import Enzyme from 'enzyme';
 import { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

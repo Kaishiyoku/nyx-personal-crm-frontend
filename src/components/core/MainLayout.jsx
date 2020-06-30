@@ -1,12 +1,10 @@
-import React, {ReactElement, useRef} from "react";
+import React, {useRef} from "react";
 import {Layout, useLayoutNavigation} from "@react-md/layout";
 import {ENTER, useCrossFade} from "@react-md/transition";
-import navItems from "./navItems";
-import App from "./App";
+import navItems from "../../core/navItems";
 import {Link, Router, useLocation} from '@reach/router';
-import AboutPage from './AboutPage';
-import WelcomePage from './WelcomePage';
-import {Grid} from '@react-md/utils';
+import AboutPage from '../pages/AboutPage';
+import WelcomePage from '../pages/WelcomePage';
 
 export default () => {
     const {pathname} = useLocation();
