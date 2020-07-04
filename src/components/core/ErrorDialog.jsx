@@ -13,7 +13,7 @@ class ErrorDialog extends React.PureComponent {
     };
 
     componentDidMount() {
-        alert$._subscribe({
+        alert$.subscribe({
             next: (v) => {
                 this.handleShowErrorDialog(v);
             },

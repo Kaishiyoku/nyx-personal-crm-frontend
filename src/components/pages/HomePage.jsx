@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleFullWidthGrid from '../core/SingleFullWidthGrid';
+import addToastMessage from '../../core/addToastMessage';
 
 class HomePage extends React.PureComponent {
     render() {

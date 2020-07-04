@@ -10,6 +10,7 @@ const translations = {
     },
     login: {
         alreadyLoggedIn: 'You are already logged in.',
+        success: 'Login successful.',
         title: 'Login',
     },
     nav: {

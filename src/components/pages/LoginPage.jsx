@@ -7,6 +7,7 @@ import post from '../../request/post';
 import alert$ from '../../rx/alert$';
 import TextInput from '../form/TextInput';
 import ProgressSubmitButton from '../form/ProgressSubmitButton';
+import addToastMessage from '../../core/addToastMessage';
 
 class LoginPage extends React.PureComponent {
     state = {
@@ -31,6 +32,8 @@ class LoginPage extends React.PureComponent {
     sendLoginRequest(model) {
         post('/login', model).then((response) => {
             setApiToken(response.data.api_token);
+
+            addToastMessage(trans('login.success'));
 
             this.props.navigate('/about'); // TODO: redirect to real page
         }).catch((error) => {
