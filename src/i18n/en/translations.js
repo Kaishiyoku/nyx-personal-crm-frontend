@@ -8,6 +8,11 @@ const translations = {
         create: 'Create',
         error: 'Error',
     },
+    gender: {
+        index: {
+            title: 'Genders',
+        },
+    },
     login: {
         alreadyLoggedIn: 'You are already logged in.',
         success: 'Login successful.',

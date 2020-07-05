@@ -2,7 +2,7 @@
 
 const config = {
     backend: {
-        baseUrl: 'http://localhost:8000/api',
+        baseUrl: 'http://localhost:8000/api/v1',
     },
     fallbackLocale: 'en',
     availableLocales: ['en'],
