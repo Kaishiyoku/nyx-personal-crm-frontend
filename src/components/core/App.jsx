@@ -10,11 +10,15 @@ import {DropdownMenu} from '@react-md/menu';
 import {MoreVertSVGIcon} from '@react-md/material-icons';
 import route$ from '../../rx/route$';
 import isAuthorized from '../../authorization/isAuthorized';
+import addToastMessage from '../../core/addToastMessage';
+import trans from '../../i18n/trans';
 
 class App extends React.PureComponent {
     render() {
         const handleLogout = () => {
             clearApiToken();
+
+            addToastMessage(trans('logout.success'));
 
             route$.next('/');
         };
