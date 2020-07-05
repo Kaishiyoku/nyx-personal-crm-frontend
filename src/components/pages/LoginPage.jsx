@@ -8,6 +8,7 @@ import alert$ from '../../rx/alert$';
 import TextInput from '../form/TextInput';
 import ProgressSubmitButton from '../form/ProgressSubmitButton';
 import addToastMessage from '../../core/addToastMessage';
+import withRouting from '../core/withRouting';
 
 class LoginPage extends React.PureComponent {
     state = {
@@ -35,7 +36,7 @@ class LoginPage extends React.PureComponent {
 
             addToastMessage(trans('login.success'));
 
-            this.props.navigate('/about'); // TODO: redirect to real page
+            this.props.navigate('/dashboard');
         }).catch((error) => {
             alert$.next(error.toString());
         }).finally(() => {
@@ -78,4 +79,4 @@ class LoginPage extends React.PureComponent {
     }
 }
 
-export default LoginPage;
+export default withRouting(LoginPage);

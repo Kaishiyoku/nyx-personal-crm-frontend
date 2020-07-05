@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import {Layout, useLayoutNavigation} from '@react-md/layout';
 import {ENTER, useCrossFade} from '@react-md/transition';
-import navItems from '../../core/navItems';
 import {Link, useLocation} from '@reach/router';
 import config from '../../config';
 import Routing from './Routing';
@@ -9,8 +8,11 @@ import ErrorDialog from './ErrorDialog';
 import {useAddMessage} from '@react-md/alert';
 import useObservable from './useObservable';
 import toast$ from '../../rx/toast$';
+import isAuthorized from '../../authorization/isAuthorized';
+import authorizedNavItems from '../../core/authorizedNavItems';
+import unauthorizedNavItems from '../../core/unauthorizedNavItems';
 
-export default () => {
+export default (props) => {
     const addMessage = useAddMessage();
     const {pathname} = useLocation();
     const [_rendered, transitionProps, dispatch] = useCrossFade();
@@ -24,6 +26,8 @@ export default () => {
         dispatch(ENTER);
     }
 
+    const navItems = isAuthorized() ? authorizedNavItems : unauthorizedNavItems;
+
     return (
         <>
             <ErrorDialog/>
@@ -33,6 +37,7 @@ export default () => {
                 navHeaderTitle={config.navTitle}
                 treeProps={useLayoutNavigation(navItems, pathname, Link)}
                 mainProps={transitionProps}
+                appBarProps={{children: props.appBarNavItems}}
             >
                 <Routing/>
             </Layout>

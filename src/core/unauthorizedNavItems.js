@@ -12,11 +12,11 @@ const createRoute = (to, name, icon, parentId = null) => {
 };
 
 /* eslint-disable sort-keys */
-const navItems = {
+const unauthorizedNavItems = {
     '/': createRoute('/', 'Home', <HomeFontIcon/>),
     '/login': createRoute('/login', 'Login', <ExitToAppFontIcon/>),
     '/about': createRoute('/about', 'About', <HelpFontIcon/>),
 };
 /* eslint-enable sort-keys */
 
-export default navItems;
+export default unauthorizedNavItems;

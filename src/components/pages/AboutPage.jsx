@@ -1,6 +1,7 @@
 import React from 'react';
 import SingleFullWidthGrid from '../core/SingleFullWidthGrid';
 import trans from '../../i18n/trans';
+import withRouting from '../core/withRouting';
 
 class AboutPage extends React.PureComponent {
     render() {
@@ -12,4 +13,4 @@ class AboutPage extends React.PureComponent {
     }
 }
 
-export default AboutPage;
+export default withRouting(AboutPage);
