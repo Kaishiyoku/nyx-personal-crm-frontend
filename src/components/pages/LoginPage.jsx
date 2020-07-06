@@ -1,14 +1,12 @@
 import React from 'react';
 import trans from '../../i18n/trans';
 import merge from '../../core/merge';
-import Formsy from 'formsy-react';
 import setApiToken from '../../authorization/setApiToken';
 import post from '../../request/post';
 import alert$ from '../../rx/alert$';
-import TextInput from '../form/TextInput';
-import ProgressSubmitButton from '../form/ProgressSubmitButton';
 import addToastMessage from '../../core/addToastMessage';
 import withRouting from '../core/withRouting';
+import {Button, Form, Input} from 'antd';
 
 class LoginPage extends React.PureComponent {
     state = {
@@ -46,35 +44,53 @@ class LoginPage extends React.PureComponent {
         });
     }
 
-    render() {
-        return (
-            <Formsy
-                onValidSubmit={this.handleSubmit}
-                onValid={this.enableSubmitButton}
-                onInvalid={this.disableSubmitButton}
-                className="form-1-1-1-1"
-            >
-                <h1>{trans('login.title')}</h1>
+    handleOnFinish = (values) => {
+        this.handleSubmit(values);
+    };
 
-                <TextInput
+    handleOnFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
+    render() {
+        const layout = {
+            labelCol: {span: 8},
+            wrapperCol: {span: 16},
+        };
+
+        const tailLayout = {
+            wrapperCol: {offset: 8, span: 16},
+        };
+
+        return (
+            <Form
+                {...layout}
+                name="login"
+                onFinish={this.handleOnFinish}
+                onFinishFailed={this.handleOnFinishFailed}
+            >
+                <Form.Item
                     label={trans('validation.attributes.email')}
                     name="email"
-                    validations="isEmail"
-                    validationError="This is not a valid email"
-                    required
-                />
+                    rules={[{message: 'Please input your email address.', required: true}]}
+                >
+                    <Input/>
+                </Form.Item>
 
-                <TextInput
+                <Form.Item
                     label={trans('validation.attributes.password')}
-                    type="password"
                     name="password"
-                    required
-                />
+                    rules={[{message: 'Please input your password.', required: true}]}
+                >
+                    <Input.Password/>
+                </Form.Item>
 
-                <ProgressSubmitButton disabled={!this.state.canSubmit} isLoading={this.state.isLoading}>
-                    {trans('login.title')}
-                </ProgressSubmitButton>
-            </Formsy>
+                <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit" loading={this.state.isLoading}>
+                        {trans('login.title')}
+                    </Button>
+                </Form.Item>
+            </Form>
         );
     }
 }

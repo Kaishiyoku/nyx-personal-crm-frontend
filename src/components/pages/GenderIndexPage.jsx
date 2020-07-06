@@ -20,11 +20,11 @@ class GenderIndexPage extends React.PureComponent {
 
     render() {
         return (
-            <SingleFullWidthGrid>
+            <>
                 <h1>{trans('gender.index.title')}</h1>
 
                 {this.state.genders.map((gender) => <div key={gender.name}>{gender.name}</div>)}
-            </SingleFullWidthGrid>
+            </>
         );
     }
 }

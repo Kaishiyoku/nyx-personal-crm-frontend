@@ -1,54 +1,44 @@
-import 'assets/scss/App.scss';
+import 'assets/scss/App.less';
 import React from 'react';
-import {hot} from 'react-hot-loader';
-import MainLayout from './MainLayout';
-import {createHistory, LocationProvider, navigate} from '@reach/router';
-import {Configuration} from '@react-md/layout';
-import {MessageQueue} from '@react-md/alert';
-import clearApiToken from '../../authorization/clearApiToken';
-import {DropdownMenu} from '@react-md/menu';
-import {MoreVertSVGIcon} from '@react-md/material-icons';
-import route$ from '../../rx/route$';
+import {Layout, Menu} from 'antd';
 import isAuthorized from '../../authorization/isAuthorized';
-import addToastMessage from '../../core/addToastMessage';
-import trans from '../../i18n/trans';
+import authorizedNavItems from '../../core/authorizedNavItems';
+import unauthorizedNavItems from '../../core/unauthorizedNavItems';
+import {map} from 'ramda';
+import route$ from '../../rx/route$';
+import MainLayout from './MainLayout';
+import {createHistory, LocationProvider} from '@reach/router';
+import {hot} from 'react-hot-loader';
+
+const {SubMenu} = Menu;
 
 class App extends React.PureComponent {
+    renderNavItems = () => {
+        return map((item) => {
+            return <Menu.Item key={item.title} icon={item.icon} onClick={() => route$.next(item.to)}>{item.title}</Menu.Item>;
+        }, isAuthorized() ? authorizedNavItems : unauthorizedNavItems);
+    };
+
     render() {
-        const handleLogout = () => {
-            clearApiToken();
-
-            addToastMessage(trans('logout.success'));
-
-            route$.next('/');
-        };
-
-        const handleLogin = () => {
-            route$.next('/login');
-        };
-
-        const appBarMoreMenuItems = isAuthorized() ? [{children: 'Logout', onClick: handleLogout}] : [{children: 'Login', onClick: handleLogin}];
-
-        const appBarNavItems = [
-            <DropdownMenu
-                first
-                key="menu"
-                id="dropdown-menu"
-                items={appBarMoreMenuItems}
-                buttonType="icon"
-                aria-label="Menu"
-            >
-                <MoreVertSVGIcon />
-            </DropdownMenu>,
-        ];
-
         return (
             <LocationProvider history={createHistory(window)}>
-                <Configuration>
-                    <MessageQueue id="main-alerts">
-                        <MainLayout appBarNavItems={appBarNavItems}/>
-                    </MessageQueue>
-                </Configuration>
+                <Layout className="layout">
+                    <Layout.Header className="layout-header">
+                        <Menu mode="horizontal">
+                            {this.renderNavItems()}
+                        </Menu>
+                    </Layout.Header>
+
+                    <Layout.Content style={{ padding: '0 50px' }}>
+                        <div className="site-layout-content">
+                            <MainLayout/>
+                        </div>
+                    </Layout.Content>
+
+                    <Layout.Footer>
+
+                    </Layout.Footer>
+                </Layout>
             </LocationProvider>
         );
     }

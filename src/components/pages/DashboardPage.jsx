@@ -5,9 +5,7 @@ import withRouting from '../core/withRouting';
 class DashboardPage extends React.PureComponent {
     render() {
         return (
-            <SingleFullWidthGrid>
-                <h1>Dashboard</h1>
-            </SingleFullWidthGrid>
+            <h1>Dashboard</h1>
         );
     }
 }

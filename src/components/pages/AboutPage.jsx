@@ -6,9 +6,7 @@ import withRouting from '../core/withRouting';
 class AboutPage extends React.PureComponent {
     render() {
         return (
-            <SingleFullWidthGrid>
-                <h1>{trans('about.title')}</h1>
-            </SingleFullWidthGrid>
+            <h1>{trans('about.title')}</h1>
         );
     }
 }

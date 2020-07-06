@@ -30,17 +30,9 @@ export default (props) => {
 
     return (
         <>
-            <ErrorDialog/>
+            {/*<ErrorDialog/>*/}
 
-            <Layout
-                title={config.appTitle}
-                navHeaderTitle={config.navTitle}
-                treeProps={useLayoutNavigation(navItems, pathname, Link)}
-                mainProps={transitionProps}
-                appBarProps={{children: props.appBarNavItems}}
-            >
-                <Routing/>
-            </Layout>
+            <Routing/>
         </>
     );
 };

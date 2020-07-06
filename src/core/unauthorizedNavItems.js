@@ -1,13 +1,12 @@
 import React from 'react';
-import {ExitToAppFontIcon, HelpFontIcon, HomeFontIcon} from '@react-md/material-icons';
-import createRoute from './createRoute';
+import {HomeOutlined, LoginOutlined, QuestionOutlined} from '@ant-design/icons';
 
 /* eslint-disable sort-keys */
-const unauthorizedNavItems = {
-    '/': createRoute('/', 'Home', <HomeFontIcon/>),
-    '/login': createRoute('/login', 'Login', <ExitToAppFontIcon/>),
-    '/about': createRoute('/about', 'About', <HelpFontIcon/>),
-};
+const unauthorizedNavItems = [
+    {to: '/', title: 'Home', icon: <HomeOutlined/>},
+    {to: '/login', title: 'Login', icon: <LoginOutlined/>},
+    {to: '/about', title: 'About', icon: <QuestionOutlined/>},
+];
 /* eslint-enable sort-keys */
 
 export default unauthorizedNavItems;

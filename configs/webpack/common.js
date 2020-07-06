@@ -3,6 +3,7 @@
 // shared config (dev and prod)
 const {resolve} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {getThemeVariables} = require('antd/dist/theme');
 
 module.exports = {
     resolve: {
@@ -29,6 +30,25 @@ module.exports = {
                     'style-loader',
                     {loader: 'css-loader', options: {importLoaders: 1}},
                     'sass-loader',
+                ],
+            },
+            {
+                test: /\.less$/,
+                loaders: [
+                    'style-loader',
+                    {loader: 'css-loader', options: {importLoaders: 1}},
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
+                                modifyVars: getThemeVariables({
+                                    dark: false,
+                                    compact: false,
+                                }),
+                                javascriptEnabled: true,
+                            },
+                        },
+                    },
                 ],
             },
             {

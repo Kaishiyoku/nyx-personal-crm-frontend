@@ -5,9 +5,7 @@ import withRouting from '../core/withRouting';
 class HomePage extends React.PureComponent {
     render() {
         return (
-            <SingleFullWidthGrid>
-                <h1>Welcome</h1>
-            </SingleFullWidthGrid>
+            <h1>Welcome</h1>
         );
     }
 }
